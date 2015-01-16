@@ -78,7 +78,7 @@
   $leagueclass = new base\LOL();
 
   $leagueclass->setconfig(
-    '89de2268-297a-4007-bcb7-875e077b10bf',
+    'KEY',
     'euw',
     'en_US'
   );
