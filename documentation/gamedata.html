@@ -1,0 +1,352 @@
+<?php
+  error_reporting(E_ALL);
+  ini_set('display_errors', '1');
+  if (!isset($_SESSION)) session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LOL class preview | Game Data</title>
+
+  <!-- Bootstrap -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="http://bootswatch.com/united/bootstrap.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">LOL PHP CLASS</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right ">
+      <li><a href="index.html">Intro</a></li>
+      <li><a href="demo.html">Summoner</a></li>
+      <li><a href="stats.html">Stats</a></li>
+      <li><a href="status.html">Server Status</a></li>
+      <li><a href="champions.html">Champions</a></li>
+      <li class="active"><a href="gamedata.html">Game data</a></li>
+      </ul>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Game data</h1>
+    <p>Get localized information about items and champions using the id's of other pages</p>
+    <p>
+    <a class="btn btn-primary btn-lg" href="#champions" role="button">Champion &raquo;</a>
+    <a class="btn btn-primary btn-lg" href="#items" role="button">Item &raquo;</a>
+    <a class="btn btn-primary btn-lg" href="#mastery" role="button">mastery &raquo;</a>
+    <a class="btn btn-primary btn-lg" href="#runes" role="button">runes &raquo;</a>
+    <a class="btn btn-primary btn-lg" href="#spells" role="button">spells &raquo;</a>
+    </p>
+  </div>
+</div>
+
+
+  <div class="container" id="content">
+
+    <h1>Game Data</h1>
+
+    <h2 id="champions"> Champion </h2>
+    <div role="tabpanel">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation"><a href="#summonerbyname" aria-controls="summonerbyname" role="tab" data-toggle="tab">Champion List</a></li>
+        <li role="presentation" class="active"><a href="#ftp" role="tab" data-toggle="tab">Champion Detail</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="summonerbyname">
+
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: datadetailtype: all,allytips,altimages,blurb,enemytips,image,info,lore,partype,passive,recommended,skins,spells,stats,tags
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$champion_list = $leagueclass->get_game_data('champion');
+
+Result data:
+
+</pre>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane active" id="ftp">
+          
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: datadetailtype: all,allytips,altimages,blurb,enemytips,image,info,lore,partype,passive,recommended,skins,spells,stats,tags
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$champion_detail = $leagueclass->get_game_data('champion', 412, 'lore,allytips');
+
+Result data:
+
+</pre>
+
+        </div>
+
+      </div>
+
+    <h2 id="items"> items </h2>
+    <div role="tabpanel">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation">
+          <a href="#itemslist" role="tab" data-toggle="tab">items List</a>
+        </li>
+        <li role="presentation" class="active">
+          <a href="#itemsdetail" role="tab" data-toggle="tab">items Detail</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="itemslist">
+          
+
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: datadetailtype: all,allytips,altimages,blurb,enemytips,image,info,lore,partype,passive,recommended,skins,spells,stats,tags
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$item = $leagueclass->get_game_data('item');
+
+Result data:
+
+</pre>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane active" id="itemsdetail">
+          
+          <?php 
+            $item_detail = $leagueclass->get_game_data('item', 3092, 'gold,inStore,sanitizedDescription');
+          ?>
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: all,colloq,consumeOnFull,consumed,depth,from,gold,groups,hideFromAll,image,inStore,into,maps,requiredChampion,sanitizedDescription,specialRecipe,stacks,stats,tags,tree
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$item_detail = $leagueclass->get_game_data('item', 3092, 'gold,inStore,sanitizedDescription');
+
+Result data:
+
+</pre>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <h2 id="mastery"> mastery </h2>
+    <div role="tabpanel">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation">
+          <a href="#masterylist" role="tab" data-toggle="tab">mastery List</a>
+        </li>
+        <li role="presentation" class="active">
+          <a href="#masterydetail" role="tab" data-toggle="tab">mastery Detail</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="masterylist">
+          
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: datadetailtype: all,allytips,altimages,blurb,enemytips,image,info,lore,partype,passive,recommended,skins,spells,stats,tags
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$mastery = $leagueclass->get_game_data('mastery');
+
+Result data:
+
+</pre>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane active" id="masterydetail">
+          
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: all,image,prereq,ranks,sanitizedDescription
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$mastery_detail = $leagueclass->get_game_data('mastery', 4353, 'image,prereq,ranks,sanitizedDescription');
+
+Result data:
+
+</pre>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <h2 id="runes"> runes </h2>
+    <div role="tabpanel">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation">
+          <a href="#runeslist" role="tab" data-toggle="tab">runes List</a>
+        </li>
+        <li role="presentation" class="active">
+          <a href="#runesdetail" role="tab" data-toggle="tab">runes Detail</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="runeslist">
+          
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: datadetailtype: all,allytips,altimages,blurb,enemytips,image,info,lore,partype,passive,recommended,skins,spells,stats,tags
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$rune = $leagueclass->get_game_data('rune');
+
+Result data:
+
+</pre>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane active" id="runesdetail">
+          
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: all,colloq,consumeOnFull,consumed,depth,from,gold,hideFromAll,image,inStore,into,maps,requiredChampion,sanitizedDescription,specialRecipe,stacks,stats,tags
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$rune_detail = $leagueclass->get_game_data('mastery', 5235, 'all');
+
+Result data:
+
+</pre>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <h2 id="spells"> spells </h2>
+    <div role="tabpanel">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation">
+          <a href="#spellslist" role="tab" data-toggle="tab">spells List</a>
+        </li>
+        <li role="presentation" class="active">
+          <a href="#spellsdetail" role="tab" data-toggle="tab">spells Detail</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="spellslist">
+          
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: datadetailtype: all,allytips,altimages,blurb,enemytips,image,info,lore,partype,passive,recommended,skins,spells,stats,tags
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$spells = $leagueclass->get_game_data('summoner-spell');
+
+Result data:
+
+</pre>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane active" id="spellsdetail">
+
+<pre>
+Call:
+// 2 arguments:
+// 1. REQUIRED: type to get all options are listed on this page
+// 2. OPTIONAL: $id : ID of a specific node
+// 3. OPTIONAL: all,colloq,consumeOnFull,consumed,depth,from,gold,hideFromAll,image,inStore,into,maps,requiredChampion,sanitizedDescription,specialRecipe,stacks,stats,tags
+// Tip: Only use ARG 3 in combination with 2 to avoid slow loading
+$spell_detail = $leagueclass->get_game_data('summoner-spell', 12, 'all');
+
+Result data:
+
+</pre>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+<script>
+jQuery(document).ready(function ($) {
+        $('.nav-tabs').tab();
+    });
+</script>
+
+</body>
+</html>
